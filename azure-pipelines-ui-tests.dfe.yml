@@ -35,7 +35,7 @@ jobs:
     fetchTags: false
   - task: UsePythonVersion@0
     displayName: Use Python 3.10
-    retryCountOnTaskFailure: 5
+    retryCountOnTaskFailure: 2
     timeoutInMinutes: 5
     inputs:
       versionSpec: 3.10
@@ -45,7 +45,12 @@ jobs:
   #     ConnectedServiceName: 372f9261-ade1-429b-be3c-aebd417646ca
   #     KeyVaultName: s101d01-kv-ees-01
   #     SecretsFilter: ees-test-ADMIN-PASSWORD,ees-test-ANALYST-PASSWORD
-  
+  - task: AzureKeyVault@2
+    inputs:
+      azureSubscription: 'Hive IT (3caedb98-4e0e-41f5-9b4c-b4a85de385d1)'
+      KeyVaultName: 'ymltest'
+      SecretsFilter: '*'
+      RunAsPreJob: false
   - task: PythonScript@0
     displayName: Public UI tests
     inputs:
@@ -84,7 +89,7 @@ jobs:
     fetchTags: false
   - task: UsePythonVersion@0
     displayName: Use Python 3.10
-    retryCountOnTaskFailure: 5
+    retryCountOnTaskFailure: 2
     timeoutInMinutes: 5
     inputs:
       versionSpec: 3.10
@@ -94,6 +99,12 @@ jobs:
   #     ConnectedServiceName: 372f9261-ade1-429b-be3c-aebd417646ca
   #     KeyVaultName: s101d01-kv-ees-01
   #     SecretsFilter: ees-test-ADMIN-PASSWORD,ees-test-ANALYST-PASSWORD,ees-test-expiredinvite-password
+  - task: AzureKeyVault@2
+    inputs:
+      azureSubscription: 'Hive IT (3caedb98-4e0e-41f5-9b4c-b4a85de385d1)'
+      KeyVaultName: 'ymltest'
+      SecretsFilter: '*'
+      RunAsPreJob: false
   - task: PythonScript@0
     displayName: Publish release and amend UI tests
     condition: succeededOrFailed()
@@ -132,7 +143,7 @@ jobs:
     fetchTags: false
   - task: UsePythonVersion@0
     displayName: Use Python 3.10
-    retryCountOnTaskFailure: 5
+    retryCountOnTaskFailure: 2
     timeoutInMinutes: 5
     inputs:
       versionSpec: 3.10
@@ -142,6 +153,12 @@ jobs:
   #     ConnectedServiceName: 372f9261-ade1-429b-be3c-aebd417646ca
   #     KeyVaultName: s101d01-kv-ees-01
   #     SecretsFilter: ees-test-ADMIN-PASSWORD,ees-test-ANALYST-PASSWORD,ees-test-expiredinvite-password
+  - task: AzureKeyVault@2
+    inputs:
+      azureSubscription: 'Hive IT (3caedb98-4e0e-41f5-9b4c-b4a85de385d1)'
+      KeyVaultName: 'ymltest'
+      SecretsFilter: '*'
+      RunAsPreJob: false
   - task: PythonScript@0
     displayName: Admin UI tests
     condition: succeededOrFailed()
@@ -182,7 +199,7 @@ jobs:
     fetchTags: false
   - task: UsePythonVersion@0
     displayName: Use Python 3.10
-    retryCountOnTaskFailure: 5
+    retryCountOnTaskFailure: 2
     timeoutInMinutes: 5
     inputs:
       versionSpec: 3.10
@@ -192,6 +209,12 @@ jobs:
   #     ConnectedServiceName: 372f9261-ade1-429b-be3c-aebd417646ca
   #     KeyVaultName: s101d01-kv-ees-01
   #     SecretsFilter: ees-test-ADMIN-PASSWORD,ees-test-ANALYST-PASSWORD,ees-test-expiredinvite-password
+  - task: AzureKeyVault@2
+    inputs:
+      azureSubscription: 'Hive IT (3caedb98-4e0e-41f5-9b4c-b4a85de385d1)'
+      KeyVaultName: 'ymltest'
+      SecretsFilter: '*'
+      RunAsPreJob: false
   - task: PythonScript@0
     displayName: Admin public UI tests
     inputs:
